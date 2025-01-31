@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathOperators.MainPage">
+			 
+    <VerticalStackLayout 
+        Spacing="20">
+        <Grid Margin="20, 20" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Left:" FontSize="14" />
+                <Entry x:Name="_txtLeftOp" Margin="0, 6, 10, 0"/>
+            </VerticalStackLayout>
+            <Picker x:Name="_pckOperand"
+                    Title="..."
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    HeightRequest="34"
+                    WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>+ Addition</x:String>
+                        <x:String>- Subtraction</x:String>
+                        <x:String>* Multiplication</x:String>
+                        <x:String>/ Int Division</x:String>
+                        <x:String>/ Real Division</x:String>
+                        <x:String>% Remainder</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>  
+            <VerticalStackLayout Grid.Column="2" Margin="10, 0, 0, 0">
+                <Label Text="Right:" FontSize="14"/>
+                <Entry x:Name="_txtRightOp" Margin="0, 6, 0, 0"/>
+            </VerticalStackLayout>
+        </Grid>
+        <Button Text="Calculate" 
+                WidthRequest="200"
+                Margin="20, 0" FontSize="17" VerticalOptions="Center"/>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <Label Text="Arithmetic Expression" FontSize="17"/>
+            <Entry x:Name="_txtMathExp" FontSize="17" IsReadOnly="True"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
